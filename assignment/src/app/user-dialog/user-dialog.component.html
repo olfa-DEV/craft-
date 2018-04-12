@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="submit(form)">
+<h1 mat-dialog-title>Edit User</h1>
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Enter name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="username" placeholder="Enter username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Enter email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="street" placeholder="Enter street">
+    </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button type="submit">Edit</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

@@ -11,12 +11,17 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserComponent } from './user/user.component';
 import { UserService } from './user.service';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    UserDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +29,12 @@ import { UserService } from './user.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [UserService],
+  entryComponents: [UserDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

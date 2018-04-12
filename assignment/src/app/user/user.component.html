@@ -34,9 +34,20 @@
                             <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
                           </ng-container>
                       
+                          <ng-container matColumnDef="actions">
+                              <mat-header-cell *matHeaderCellDef> actions </mat-header-cell>
+                              <mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+                                  <button mat-button (click)="onEdit(element)">
+                                      <mat-icon>edit</mat-icon>
+                                  </button>
+                                  <button mat-button (click)="onDelete(element)">
+                                      <mat-icon>delete</mat-icon>
+                                  </button>  
+                              </mat-cell>
+                            </ng-container>
                       
                           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onEdit(row.id)"></mat-row>
                         </mat-table>
                       </div>
                 </mat-card>

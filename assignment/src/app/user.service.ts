@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { User } from './user/user.component';
 
 
 @Injectable()
@@ -15,18 +16,7 @@ export class UserService {
       .map(result => this.result = result.json());
   } 
  
-//
- // getUsers()
- // {
-  //  fetch('https://jsonplaceholder.typicode.com/posts')
-   // .then(response => response.json())
-   // .then(json => console.log(json))
-  //}
-
- /*getUsers() {
- fetch('https://jsonplaceholder.typicode.com/posts/1')
-  .then(response => response.json())
-  .then(json => console.log(json))
-} 
-*/
+  update(user : User){
+    return this._http.put("https://jsonplaceholder.typicode.com/users/"+user.id, user)
+  }
 }
