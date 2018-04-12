@@ -1,3 +1,23 @@
-<button mat-button>My Button</button>
+<div class ="container" fxLayout="column" fxFlex>
+    <mat-toolbar color="primary">
+        My App
+    </mat-toolbar>
+    <mat-sidenav-container fxFlex>
+        <mat-sidenav mode="side" opened>
+                <div class ="container" fxLayout="column" fxFlex>
+                    <button mat-raised-button class="btn" color="primary">Users</button>
+                     <button mat-raised-button class="btn" color="primary">Posts</button>
+                </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+                <mat-card> <app-user></app-user></mat-card>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 
+</div>
+
+<!--
+<button mat-button>My Button</button>
+<app-user></app-user>
 <router-outlet></router-outlet>
+-->
