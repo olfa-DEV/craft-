@@ -1,6 +1,46 @@
-<ul>
-  <li *ngFor="let user of users">
-    <div>{{ user.id }}</div>
-    <div>{{ user.name }}</div>
-  </li>
-</ul>
+
+
+<div class ="container" fxLayout="column" fxFlex>
+    <mat-toolbar color="primary">
+        My App
+    </mat-toolbar>
+    <mat-sidenav-container  fxFlex>
+        <mat-sidenav mode="side" opened>
+                <div class ="container" fxLayout="column" fxFlex>
+                    <button mat-raised-button class="btn" color="primary">Users</button>
+                     <button mat-raised-button class="btn" color="primary">Posts</button>
+                </div>
+        </mat-sidenav>
+        <mat-sidenav-content  >
+                <mat-card> 
+                    <div class="example-container mat-elevation-z8">
+                        <mat-table #table [dataSource]="dataSource">
+                      
+                          
+                          <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                          </ng-container>
+                      
+                          
+                          <ng-container matColumnDef="username">
+                            <mat-header-cell *matHeaderCellDef> Userame </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+                          </ng-container>
+                      
+                          
+                          <ng-container matColumnDef="email">
+                            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+                          </ng-container>
+                      
+                      
+                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+                      </div>
+                </mat-card>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+</div>
