@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import {MatPaginator, MatSort, MatTableDataSource, MatDialogRef, MatDialog} from '@angular/material';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { DeletionDialogComponent } from '../deletion-dialog/deletion-dialog.component';
 
 @Component({
   selector: 'app-user',
@@ -12,11 +13,13 @@ export class UserComponent implements OnInit {
 
   users: any[];
   editedUser;
+  userToDelete;
 
   displayedColumns = ['name', 'username', 'email','actions'];
   dataSource: MatTableDataSource<User>; 
 
   userDialogRef: MatDialogRef<UserDialogComponent>;
+  deletionDialogRef: MatDialogRef<DeletionDialogComponent>;
 
   constructor(private _userService: UserService, private dialog: MatDialog) { }
 
@@ -45,6 +48,18 @@ updateUser(user: User)
   );
 }
 
+deleteUser(user: User)
+{
+  console.log("deletion method");
+  this._userService.delete(user).subscribe(event =>
+    {
+      console.log('data deleted');
+      this.getUsers();
+
+    }
+  );
+}
+
 onEdit(row)
 {
   console.log(row);
@@ -67,7 +82,6 @@ onEdit(row)
 
     this.updateUser(this.editedUser);
 
-   // this.getUsers();
     
 });
 }
@@ -75,6 +89,21 @@ onEdit(row)
 onDelete(row)
 {
   console.log(row);
+
+  this.deletionDialogRef = this.dialog.open(DeletionDialogComponent);
+
+  this.deletionDialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+    if(result == 'yes')
+    {
+        console.log("confirmation");
+
+        this.userToDelete = new User(row.id, row.name, row.username, row.address.street );
+        this.deleteUser(this.userToDelete);
+    }
+    
+});
+
 }
 
 }

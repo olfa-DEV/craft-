@@ -19,4 +19,8 @@ export class UserService {
   update(user : User){
     return this._http.patch("http://localhost:3000/users/"+user.id, user)
   }
+
+  delete(user : User){
+    return this._http.delete("http://localhost:3000/users/"+user.id)
+  }
 }

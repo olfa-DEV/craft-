@@ -14,6 +14,7 @@ import { UserService } from './user.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DeletionDialogComponent } from './deletion-dialog/deletion-dialog.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AppComponent,
     UserComponent,
     UserDialogComponent,
-    LoginComponent
+    LoginComponent,
+    DeletionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [UserService],
-  entryComponents: [UserDialogComponent],
+  entryComponents: [UserDialogComponent, DeletionDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
