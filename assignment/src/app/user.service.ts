@@ -12,11 +12,11 @@ export class UserService {
   constructor(private _http: Http) { }
   
   getUsers() {
-    return this._http.get("https://jsonplaceholder.typicode.com/users")
+    return this._http.get("http://localhost:3000/users")
       .map(result => this.result = result.json());
   } 
  
   update(user : User){
-    return this._http.put("https://jsonplaceholder.typicode.com/users/"+user.id, user)
+    return this._http.patch("http://localhost:3000/users/"+user.id, user)
   }
 }

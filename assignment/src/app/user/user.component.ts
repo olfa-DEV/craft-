@@ -26,6 +26,7 @@ export class UserComponent implements OnInit {
 
   getUsers()
 {
+  console.log("get users method");
   this._userService.getUsers().subscribe(
     (resData) =>{
       this.dataSource = new MatTableDataSource(resData)
@@ -34,7 +35,14 @@ export class UserComponent implements OnInit {
  
 updateUser(user: User)
 {
-  this._userService.update(user);
+  console.log("edit method");
+  this._userService.update(user).subscribe(event =>
+    {
+      console.log('data changed inserted');
+      this.getUsers();
+
+    }
+  );
 }
 
 onEdit(row)
@@ -57,9 +65,9 @@ onEdit(row)
     this.editedUser = new User(row.id, result.col1.name, result.col1.username, result.col1.street);
     this.editedUser.displayUser();
 
-    this._userService.update(this.editedUser);
+    this.updateUser(this.editedUser);
 
-    this.getUsers();
+   // this.getUsers();
     
 });
 }
