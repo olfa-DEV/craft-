@@ -16,6 +16,7 @@ export class DeletionDialogComponent implements OnInit {
   confirm()
   {
     this.dialogRef.close("yes");
+    
   }
 
 
