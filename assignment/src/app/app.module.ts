@@ -23,7 +23,7 @@ import { DeletionDialogComponent } from './deletion-dialog/deletion-dialog.compo
     UserComponent,
     UserDialogComponent,
     LoginComponent,
-    DeletionDialogComponent
+    DeletionDialogComponent 
   ],
   imports: [
     BrowserModule,

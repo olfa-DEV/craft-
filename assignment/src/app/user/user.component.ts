@@ -99,7 +99,7 @@ onDelete(row)
         console.log("confirmation");
 
         this.userToDelete = new User(row.id, row.name, row.username, row.address.street );
-        this.deleteUser(this.userToDelete);
+        this.deleteUser(this.userToDelete); 
     }
     
 });

@@ -21,6 +21,6 @@ export class UserService {
   }
 
   delete(user : User){
-    return this._http.delete("http://localhost:3000/users/"+user.id)
+    return this._http.delete("http://localhost:3000/users/"+user.id) 
   }
 }
