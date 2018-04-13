@@ -1,0 +1,41 @@
+:host {
+    display:flex;
+     flex:1;
+   }
+  
+mat-sidenav{
+    
+    background-color: #3F51B5;
+
+ }
+
+ .btn{
+    margin: 2%;
+}
+
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 85%;
+  }
+
+  .butt{
+      margin-left: 2%
+  }

@@ -1,0 +1,47 @@
+<div class ="container" fxLayout="column" fxFlex>
+  <mat-toolbar color="primary">
+      My App
+  </mat-toolbar>
+  <mat-sidenav-container  fxFlex>
+      <mat-sidenav mode="side" opened>
+              <div class ="container" fxLayout="column" fxFlex>
+                  <button mat-raised-button class="btn" color="primary" [routerLink] = "['/users']">Users</button>
+                   <button mat-raised-button class="btn" color="primary" [routerLink] = "['/posts']">Posts</button>
+              </div>
+      </mat-sidenav>
+      <mat-sidenav-content  >
+            <mat-card>
+              
+               <mat-form-field class="example-full-width">
+                  <textarea  matInput [(ngModel)]="comment" placeholder="Leave a comment"></textarea>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" (click)="addComment()" class="butt">+</button>
+                <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                 
+              </mat-card>
+              <mat-card> 
+                  <div class="example-container mat-elevation-z8">
+                      <mat-table #table [dataSource]="dataSource">
+                    
+              
+                        <ng-container matColumnDef="name">
+                          <mat-header-cell *matHeaderCellDef>UserName</mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                        </ng-container>
+                    
+                        
+                        <ng-container matColumnDef="body">
+                          <mat-header-cell *matHeaderCellDef>Comment</mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+                        </ng-container>
+                    
+                    
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                      </mat-table>
+                    </div>
+              </mat-card>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

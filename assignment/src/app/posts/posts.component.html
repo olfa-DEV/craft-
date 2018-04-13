@@ -1,0 +1,47 @@
+<div class ="container" fxLayout="column" fxFlex>
+  <mat-toolbar color="primary">
+      My App
+  </mat-toolbar>
+  <mat-sidenav-container  fxFlex>
+      <mat-sidenav mode="side" opened>
+              <div class ="container" fxLayout="column" fxFlex>
+                  <button mat-raised-button class="btn" color="primary" [routerLink] = "['/users']">Users</button>
+                   <button mat-raised-button class="btn" color="primary" [routerLink] = "['/posts']">Posts</button>
+              </div>
+      </mat-sidenav>
+      <mat-sidenav-content  >
+              <mat-card> 
+                  <div class="example-container mat-elevation-z8">
+                      <mat-table #table [dataSource]="dataSource">
+                    
+                        
+                        <ng-container matColumnDef="title">
+                          <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                        </ng-container>
+                    
+                        
+                        <ng-container matColumnDef="body">
+                          <mat-header-cell *matHeaderCellDef>Body</mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+                        </ng-container>
+                    
+                        
+                        <ng-container matColumnDef="actions">
+                            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                            <mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+                                <button mat-button [routerLink] = "['/posts/', element.id]">
+                                    <mat-icon>forward</mat-icon>
+                                </button> 
+                            </mat-cell>
+                          </ng-container>
+                    
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                      </mat-table>
+                    </div>
+              </mat-card>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

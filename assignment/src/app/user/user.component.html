@@ -7,8 +7,8 @@
     <mat-sidenav-container  fxFlex>
         <mat-sidenav mode="side" opened>
                 <div class ="container" fxLayout="column" fxFlex>
-                    <button mat-raised-button class="btn" color="primary">Users</button>
-                     <button mat-raised-button class="btn" color="primary">Posts</button>
+                        <button mat-raised-button class="btn" color="primary" [routerLink] = "['/users']">Users</button>
+                        <button mat-raised-button class="btn" color="primary" [routerLink] = "['/posts']">Posts</button>
                 </div>
         </mat-sidenav>
         <mat-sidenav-content  >
@@ -47,7 +47,7 @@
                             </ng-container>
                       
                           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onEdit(row.id)"></mat-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                         </mat-table>
                       </div>
                 </mat-card>

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule} from '@angular/router'
 
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -15,6 +16,9 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeletionDialogComponent } from './deletion-dialog/deletion-dialog.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostService } from './post.service';
+import { CommentComponent } from './comment/comment.component';
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { DeletionDialogComponent } from './deletion-dialog/deletion-dialog.compo
     UserComponent,
     UserDialogComponent,
     LoginComponent,
-    DeletionDialogComponent 
+    DeletionDialogComponent,
+    PostsComponent,
+    CommentComponent 
   ],
   imports: [
     BrowserModule,
@@ -33,9 +39,10 @@ import { DeletionDialogComponent } from './deletion-dialog/deletion-dialog.compo
     MaterialModule,
     FlexLayoutModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
-  providers: [UserService],
+  providers: [UserService, PostService],
   entryComponents: [UserDialogComponent, DeletionDialogComponent],
   bootstrap: [AppComponent]
 })
