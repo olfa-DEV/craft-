@@ -20,6 +20,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostService } from './post.service';
 import { CommentComponent } from './comment/comment.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,

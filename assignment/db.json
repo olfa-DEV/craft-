@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 2,
-      "name": "Ervin",
+      "name": "Ervi",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
       "address": {
@@ -647,6 +647,20 @@
       "body": "hello",
       "postId": "2",
       "id": 53
+    },
+    {
+      "name": "Olfa Souahlia",
+      "email": "olfa@gmail.com",
+      "body": "hi",
+      "postId": "1",
+      "id": 54
+    },
+    {
+      "name": "Olfa Souahlia",
+      "email": "olfa@gmail.com",
+      "body": "hello from the other side",
+      "postId": "1",
+      "id": 55
     }
   ]
 }

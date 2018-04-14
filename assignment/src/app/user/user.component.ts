@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   users: any[];
   editedUser;
   userToDelete;
+  resData:any;
 
   displayedColumns = ['name', 'username', 'email','actions'];
   dataSource: MatTableDataSource<User>; 
@@ -32,7 +33,9 @@ export class UserComponent implements OnInit {
   console.log("get users method");
   this._userService.getUsers().subscribe(
     (resData) =>{
-      this.dataSource = new MatTableDataSource(resData)
+      console.log(resData);
+      this.resData = resData;
+      this.dataSource = new MatTableDataSource(this.resData)
     });
 }
  

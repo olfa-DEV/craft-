@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class PostsComponent implements OnInit {
 
+  resData:any;
 
   displayedColumns = ['title', 'body','actions'];
   dataSource: MatTableDataSource<Post>; 
@@ -23,7 +24,8 @@ export class PostsComponent implements OnInit {
   {
     this._postService.getPosts().subscribe(
       (resData) =>{
-        this.dataSource = new MatTableDataSource(resData)
+        this.resData = resData;
+        this.dataSource = new MatTableDataSource(this.resData);
       });
   }
 

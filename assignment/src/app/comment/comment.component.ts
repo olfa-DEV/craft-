@@ -17,6 +17,7 @@ export class CommentComponent implements OnInit {
   showSpinner: boolean = false;
   comm;
   postID;
+  resData:any;
 
   constructor(private _route : ActivatedRoute, private _postService: PostService) { }
 
@@ -33,7 +34,8 @@ export class CommentComponent implements OnInit {
   {
     this._postService.getCommentsByPost(id).subscribe(
       (resData) =>{
-        this.dataSource = new MatTableDataSource(resData)
+        this.resData = resData;
+        this.dataSource = new MatTableDataSource(this.resData);
       });
   }
 
