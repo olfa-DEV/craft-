@@ -23,4 +23,12 @@ export class UserService {
   delete(user : User){
     return this._http.delete("http://localhost:3000/users/"+user.id) 
   }
+
+
+  getUser(email, pwd){
+    return this._http.get("http://localhost:3000/users?email="+email+"&&username="+pwd)
+    .map(result => this.result = result.json());
+  }
+
+
 }

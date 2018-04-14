@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<mat-card class = "card-class">
+    <form [formGroup]="form1" (ngSubmit)="display()">
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="form1.get('email').invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+       <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="form1.get('password').hasError('required')">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+    
+      <a _ngcontent-c50="" class="forgot-password" href="#">Forgot Password?</a>
+    
+      <input type="submit" class="button-expanded" value="login" [disabled]="!form1.valid">
+    </form>
+    <p class="textAcc">Don't have an account?</p>
+    <a _ngcontent-c50="" class="forgot-password" href="#">Create an account</a>
+  </mat-card>
