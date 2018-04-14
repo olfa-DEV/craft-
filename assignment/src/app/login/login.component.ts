@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +13,16 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   hide = true;
+  res:any;
   
+  loginDialogRef : MatDialogRef<LoginDialogComponent>;
 
   form1 = new FormGroup({
     email : new FormControl('', [Validators.required, Validators.email]),
     password : new FormControl('', [Validators.required, Validators.minLength(8)])
   })
 
-  constructor(private _userService: UserService,private router: Router) { }
+  constructor(private _userService: UserService,private router: Router, private dialog: MatDialog) { }
 
   
 
@@ -35,12 +39,13 @@ export class LoginComponent implements OnInit {
     
     this._userService.getUser(this.form1.value.email, this.form1.value.password).subscribe((res)=>{
       console.log(res);
-      if (res != null)
+      this.res = res;
+      if (this.res.length != 0 )
       {
         this.router.navigate(['users'])
       }
       else
-      alert("You're not subscribed")
+      this.loginDialogRef = this.dialog.open(LoginDialogComponent);
     })
   }
 

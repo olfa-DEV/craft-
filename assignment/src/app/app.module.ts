@@ -21,6 +21,7 @@ import { PostService } from './post.service';
 import { CommentComponent } from './comment/comment.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     DeletionDialogComponent,
     PostsComponent,
     CommentComponent,
-    RegisterComponent 
+    RegisterComponent,
+    LoginDialogComponent 
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule
   ],
   providers: [UserService, PostService],
-  entryComponents: [UserDialogComponent, DeletionDialogComponent],
+  entryComponents: [UserDialogComponent, DeletionDialogComponent, LoginDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 <mat-card class = "card-class">
-    <form [formGroup]="form1" (ngSubmit)="display()">
+    <form [formGroup]="form1">
       <div class="example-container">
         <mat-form-field>
           <input matInput placeholder="Email" formControlName="email">
@@ -12,7 +12,8 @@
         </mat-form-field>
       </div>
     
-      <input type="submit" class="button-expanded" value="login" [disabled]="!form1.valid">
+      <button mat-raised-button color="primary" [disabled]="!form1.valid" (click) = "display()">Login</button>
+
     </form>
     <p class="textAcc">Don't have an account?</p>
     <a routerLink = "/register" _ngcontent-c50="" class="forgot-password">Create an account</a>

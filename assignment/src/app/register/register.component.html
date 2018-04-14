@@ -1,5 +1,5 @@
 <mat-card class = "card-class">
-  <form [formGroup]="formReg" (ngSubmit)="submitReg()">
+  <form [formGroup]="formReg">
     <div class="example-container">
       <mat-form-field>
         <input matInput placeholder="Name" formControlName="name" pattern="[a-zA-Z ]*" ngModel>
@@ -22,7 +22,7 @@
           <mat-error *ngIf="formReg.get('passwordConfirm').hasError('required')">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
     </div>  
-    <input type="submit" class="button-expanded" value="login" [disabled]="!formReg.valid">
+    <button mat-raised-button color="primary" [disabled]="!formReg.valid" (click) = "submitReg()">Register</button>
   </form>
   <p class="textAcc">Already have an account?</p>
   <a routerLink = "/login" _ngcontent-c50="" class="forgot-password">Login</a>
