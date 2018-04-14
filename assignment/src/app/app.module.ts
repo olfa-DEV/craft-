@@ -19,6 +19,7 @@ import { DeletionDialogComponent } from './deletion-dialog/deletion-dialog.compo
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './post.service';
 import { CommentComponent } from './comment/comment.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CommentComponent } from './comment/comment.component';
     LoginComponent,
     DeletionDialogComponent,
     PostsComponent,
-    CommentComponent 
+    CommentComponent,
+    RegisterComponent 
   ],
   imports: [
     BrowserModule,

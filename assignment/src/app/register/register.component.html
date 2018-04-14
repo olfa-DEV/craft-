@@ -1,0 +1,29 @@
+<mat-card class = "card-class">
+  <form [formGroup]="formReg" (ngSubmit)="submitReg()">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" pattern="[a-zA-Z ]*" ngModel>
+        <mat-error *ngIf="formReg.get('name').invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="lastname" formControlName="lastname" pattern="[a-zA-Z ]*" ngModel>
+        <mat-error *ngIf="formReg.get('lastname').invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="formReg.get('email').invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+     <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password" type="password">
+        <mat-error *ngIf="formReg.get('password').hasError('required')">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Password(Confirm)" formControlName="passwordConfirm" type="password">
+          <mat-error *ngIf="formReg.get('passwordConfirm').hasError('required')">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>  
+    <input type="submit" class="button-expanded" value="login" [disabled]="!formReg.valid">
+  </form>
+  <p class="textAcc">Already have an account?</p>
+  <a routerLink = "/login" _ngcontent-c50="" class="forgot-password">Login</a>
+</mat-card>

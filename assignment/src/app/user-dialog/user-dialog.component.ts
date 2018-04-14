@@ -20,14 +20,13 @@ export class UserDialogComponent implements OnInit {
     this.form = this.formBuilder.group({
         name: this.data.name,
         username: this.data.username,
-        email: this.data.email,
-        street: this.data.street
+        email: this.data.email
       })
   }
 
   submit(form) {
     this.editedUser= {
-        "col1":{"name": `${form.value.name}`, "username": `${form.value.username}`,"email":`${form.value.email}`,"street":`${form.value.street}`}
+        "col1":{"name": `${form.value.name}`, "username": `${form.value.username}`,"email":`${form.value.email}`}
     };
     this.dialogRef.close(this.editedUser);
   }

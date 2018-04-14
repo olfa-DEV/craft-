@@ -1,0 +1,42 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .card-class{
+    width: 30%;
+  }
+
+  .button-expanded {
+    background-color: #005dab;
+    border: none;
+    color: white;
+    padding: 3% 22% 3% 22% ;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.button-expanded:disabled{
+    background-color: rgb(199, 194, 194);
+}
+
+.textAcc{
+    font-size: 13px;
+    padding-top: 8%
+}
+
+.forgot-password{
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: center;
+    padding: 20%
+}

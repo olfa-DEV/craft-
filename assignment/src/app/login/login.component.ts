@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     
     this._userService.getUser(this.form1.value.email, this.form1.value.password).subscribe((res)=>{
       console.log(res);
-      if (res.id != null)
+      if (res != null)
       {
         alert("Welcome")
       }

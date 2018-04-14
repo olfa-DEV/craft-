@@ -69,15 +69,14 @@ onEdit(row)
     data: {
       username: row.username,
       name: row.name,
-      email: row.email,
-      street: row.address.street
+      email: row.email
     }
   });
 
   this.userDialogRef.afterClosed().subscribe(result => {
     console.log(result);
     
-    this.editedUser = new User(row.id, result.col1.name, result.col1.username, result.col1.street);
+    this.editedUser = new User(row.id, result.col1.name, result.col1.username, result.col1.email);
     this.editedUser.displayUser();
 
     this.updateUser(this.editedUser);
@@ -114,12 +113,12 @@ export class User{
     public id: number,
     public name: string = '',
     public username: string = '',
-    public street: string = '')
+    public email: string = '')
     {}
 
     displayUser()
     {
-      console.log(this.id + " "+ this.name+" "+ this.username +" "+ this.street);
+      console.log(this.id + " "+ this.name+" "+ this.username +" "+ this.email);
     }
   
 }

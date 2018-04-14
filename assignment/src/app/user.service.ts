@@ -30,5 +30,9 @@ export class UserService {
     .map(result => this.result = result.json());
   }
 
+  createUser(user : User){
+    return this._http.post("http://localhost:3000/users", user)
+    .map(result => this.result = result.json().data);
+  }
 
 }
