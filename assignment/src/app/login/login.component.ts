@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     password : new FormControl('', [Validators.required, Validators.minLength(8)])
   })
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService,private router: Router) { }
 
   
 
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if (res != null)
       {
-        alert("Welcome")
+        this.router.navigate(['users'])
       }
       else
       alert("You're not subscribed")

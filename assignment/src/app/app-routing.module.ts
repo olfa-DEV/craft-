@@ -13,12 +13,13 @@ const routes: Routes = [
     component : UserComponent
   },
   {
-    path: 'posts',
-    component : PostsComponent
-  },
-  {
     path: 'posts/:id',
     component : CommentComponent
+    
+  },
+  {
+    path: 'posts',
+    component : PostsComponent
   },
   {
     path: 'login',
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'register',
     component : RegisterComponent
+  },
+  {
+    path: '',
+    component : LoginComponent
   }
 
 ];
